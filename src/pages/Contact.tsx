@@ -1,19 +1,17 @@
 import { useState } from "react";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
-import SectionHeading from "@/components/SectionHeading";
 import { toast } from "sonner";
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", weddingDate: "", venue: "", guestCount: "", budget: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", eventDate: "", service: "", guestCount: "", budget: "", message: "" });
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate submission (will be replaced with DB once Cloud is enabled)
     setTimeout(() => {
       toast.success("Thank you! We'll get back to you within 24 hours.");
-      setForm({ name: "", email: "", phone: "", weddingDate: "", venue: "", guestCount: "", budget: "", message: "" });
+      setForm({ name: "", email: "", phone: "", eventDate: "", service: "", guestCount: "", budget: "", message: "" });
       setLoading(false);
     }, 1000);
   };
@@ -27,7 +25,7 @@ const Contact = () => {
           <p className="text-deep-rose font-medium tracking-widest uppercase text-sm mb-3">Get in Touch</p>
           <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4">Book a Consultation</h1>
           <div className="section-divider mb-4" />
-          <p className="text-muted-foreground max-w-2xl mx-auto">Ready to start planning your dream wedding in Kolkata? Fill out the form below.</p>
+          <p className="text-muted-foreground max-w-2xl mx-auto">Ready to start planning your dream event? Fill out the form below.</p>
         </div>
       </section>
 
@@ -40,7 +38,7 @@ const Contact = () => {
               {[
                 { icon: MapPin, label: "Address", value: "Park Street, Kolkata 700016, West Bengal" },
                 { icon: Phone, label: "Phone", value: "+91 98765 43210" },
-                { icon: Mail, label: "Email", value: "hello@vivaahkolkata.com" },
+                { icon: Mail, label: "Email", value: "hello@utsaav.com" },
                 { icon: Clock, label: "Hours", value: "Mon-Sat: 10 AM - 7 PM" },
               ].map((c) => (
                 <div key={c.label} className="flex items-start gap-4">
@@ -64,10 +62,9 @@ const Contact = () => {
               Chat on WhatsApp
             </a>
 
-            {/* Google Maps */}
             <div className="mt-8 rounded-2xl overflow-hidden shadow-romantic">
               <iframe
-                title="Vivaah Kolkata Office"
+                title="Utsaav Office"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.5!2d88.35!3d22.55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDMzJzAwLjAiTiA4OMKwMjEnMDAuMCJF!5e0!3m2!1sen!2sin!4v1"
                 width="100%"
                 height="200"
@@ -95,12 +92,20 @@ const Contact = () => {
                   <input required value={form.phone} onChange={(e) => update("phone", e.target.value)} className="w-full px-4 py-3 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring" placeholder="+91 98765 43210" />
                 </div>
                 <div>
-                  <label className="text-sm font-medium mb-1.5 block">Wedding Date</label>
-                  <input type="date" value={form.weddingDate} onChange={(e) => update("weddingDate", e.target.value)} className="w-full px-4 py-3 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
+                  <label className="text-sm font-medium mb-1.5 block">Event Date</label>
+                  <input type="date" value={form.eventDate} onChange={(e) => update("eventDate", e.target.value)} className="w-full px-4 py-3 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
                 </div>
                 <div>
-                  <label className="text-sm font-medium mb-1.5 block">Wedding Venue</label>
-                  <input value={form.venue} onChange={(e) => update("venue", e.target.value)} className="w-full px-4 py-3 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring" placeholder="Venue name or TBD" />
+                  <label className="text-sm font-medium mb-1.5 block">Service</label>
+                  <select value={form.service} onChange={(e) => update("service", e.target.value)} className="w-full px-4 py-3 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring">
+                    <option value="">Select a service</option>
+                    <option>Venue Booking</option>
+                    <option>Event Management</option>
+                    <option>Pujas</option>
+                    <option>Clothing</option>
+                    <option>Pre Wedding Shoots</option>
+                    <option>Catering and Food</option>
+                  </select>
                 </div>
                 <div>
                   <label className="text-sm font-medium mb-1.5 block">Guest Count</label>
@@ -111,6 +116,7 @@ const Contact = () => {
                 <label className="text-sm font-medium mb-1.5 block">Estimated Budget</label>
                 <select value={form.budget} onChange={(e) => update("budget", e.target.value)} className="w-full px-4 py-3 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring">
                   <option value="">Select budget range</option>
+                  <option>₹50,000 - ₹2 Lakhs</option>
                   <option>₹2-5 Lakhs</option>
                   <option>₹5-10 Lakhs</option>
                   <option>₹10-25 Lakhs</option>
@@ -120,7 +126,7 @@ const Contact = () => {
               </div>
               <div>
                 <label className="text-sm font-medium mb-1.5 block">Message</label>
-                <textarea rows={4} value={form.message} onChange={(e) => update("message", e.target.value)} className="w-full px-4 py-3 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring resize-none" placeholder="Tell us about your dream wedding..." />
+                <textarea rows={4} value={form.message} onChange={(e) => update("message", e.target.value)} className="w-full px-4 py-3 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring resize-none" placeholder="Tell us about your dream event..." />
               </div>
               <button type="submit" disabled={loading} className="w-full py-3.5 rounded-full bg-deep-rose text-card font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-60">
                 <Send className="w-4 h-4" /> {loading ? "Sending..." : "Send Consultation Request"}
