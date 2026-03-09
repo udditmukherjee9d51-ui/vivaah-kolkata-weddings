@@ -12,7 +12,7 @@ const stats = [
 
 const About = () => (
   <div className="pt-20">
-    <section className="relative py-24 bg-cream">
+    <section className="relative py-24 bg-blush">
       <div className="container mx-auto px-4 text-center">
         <p className="text-deep-rose font-medium tracking-widest uppercase text-sm mb-3">Our Story</p>
         <h1 className="font-heading text-4xl md:text-5xl font-bold mb-4">About Utsaav</h1>

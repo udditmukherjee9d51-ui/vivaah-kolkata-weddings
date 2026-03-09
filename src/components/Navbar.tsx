@@ -62,7 +62,7 @@ const Navbar = () => {
                   {l.name} <ChevronDown className={`w-3.5 h-3.5 transition-transform ${servicesOpen ? "rotate-180" : ""}`} />
                 </button>
                 {servicesOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-background border border-border rounded-xl shadow-romantic py-2 animate-fade-in">
+                  <div className="absolute top-full left-0 mt-2 w-56 bg-card border border-border rounded-xl shadow-romantic py-2 animate-fade-in">
                     {serviceLinks.map((s) => (
                       <Link
                         key={s.path}

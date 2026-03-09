@@ -37,8 +37,8 @@ const Index = () => {
         <div className="absolute inset-0 hero-overlay" />
         <div className="relative z-10 text-center px-4 max-w-3xl animate-fade-in-up">
           <p className="text-primary font-medium tracking-widest uppercase text-sm mb-4">Premium Event Management</p>
-          <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-card mb-6 leading-tight">
-            Luxury Wedding Planner and Event Management
+          <h1 className="font-heading text-3xl md:text-5xl lg:text-6xl font-semibold text-card mb-6 leading-tight">
+            Luxury Wedding Planner & Event Management
           </h1>
           <p className="text-card/80 text-lg md:text-xl mb-8 font-light">
             Utsaav creates unforgettable events — weddings, birthdays, pujas, engagements, and more — filled with elegance and tradition.
@@ -55,7 +55,7 @@ const Index = () => {
       </section>
 
       {/* About */}
-      <section className="py-20 bg-cream">
+      <section className="py-20 bg-blush">
         <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
           <div>
             <SectionHeading title="About Utsaav" className="text-left md:text-left [&_.section-divider]:mx-0" />
@@ -95,7 +95,7 @@ const Index = () => {
       </section>
 
       {/* Gallery Preview */}
-      <section className="py-20 bg-blush">
+      <section className="py-20 bg-cream">
         <div className="container mx-auto px-4">
           <SectionHeading title="Our Gallery" subtitle="A glimpse into the beautiful events we've crafted" />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
